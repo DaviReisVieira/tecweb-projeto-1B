@@ -1,0 +1,76 @@
+{% extends "notes/base.html" %} {% load static %} {% block content %}
+<div class="appbar">
+  <img src="{% static 'notes/img/logo-getit.png' %}" class="logo" />
+  <span class="subtitle">Como o Post-it, mas com outro verbo</span>
+</div>
+
+<main class="container">
+  <form class="form-card" method="post" id="form-container">
+    {% csrf_token %}
+    <input type="hidden" name="method" value="CREATE" />
+    <input
+      required
+      class="form-card-title"
+      type="text"
+      name="title"
+      placeholder="Título"
+    />
+    <textarea
+      required
+      class="autoresize"
+      name="content"
+      placeholder="Digite o conteúdo..."
+    ></textarea>
+    <input
+      class="form-card-tag"
+      type="text"
+      name="tag"
+      placeholder="Tag (opcional)"
+    />
+    <button class="btn" type="submit">Criar Post-It</button>
+  </form>
+
+  <ul class="card-container">
+    {% for note in notes %} {% block notes %} {% endblock %} {% endfor %}
+  </ul>
+  <div class="add-card">
+    <a onclick="createCard()">
+      <svg
+        enable-background="new 0 0 50 50"
+        height="50px"
+        id="Layer_1"
+        version="1.1"
+        viewBox="0 0 50 50"
+        width="50px"
+        xml:space="preserve"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <rect fill="none" height="50" width="50" />
+        <line
+          fill="none"
+          stroke="#f7d736"
+          stroke-miterlimit="10"
+          stroke-width="4"
+          x1="9"
+          x2="41"
+          y1="25"
+          y2="25"
+        />
+        <line
+          fill="none"
+          stroke="#f7d736"
+          stroke-miterlimit="10"
+          stroke-width="4"
+          x1="25"
+          x2="25"
+          y1="9"
+          y2="41"
+        />
+      </svg>
+    </a>
+  </div>
+</main>
+
+<script type="text/javascript" src="{% static 'script/getit.js' %}"></script>
+{% endblock %}

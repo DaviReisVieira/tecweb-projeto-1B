@@ -1,0 +1,34 @@
+{% extends "notes/index.html" %} {% load static %} {% block notes %}
+<li class="card" key="{{ note.id }}">
+  <form method="post" action="{% url 'update' note.id %}">
+    {% csrf_token %}
+    <button class="card-update-button" type="submit" id="{{ note.id }}">
+      <i class="fa fa-save"></i>
+    </button>
+    <input
+      value="{{ note.title }}"
+      name="title"
+      class="card-title inputcard"
+      key="{{ note.id }}"
+    />
+    <input
+      value="{{ note.tag.name }}"
+      name="tag"
+      class="card-tag inputcard"
+      key="{{ note.id }}"
+    />
+    <textarea
+      value="{{ note.content }}"
+      name="content"
+      class="card-content inputcard"
+      key="{{ note.id }}"
+    >
+{{ note.content }}</textarea
+    >
+  </form>
+  <form class="card-delete" method="post" action="{% url 'delete' note.id %}">
+    {% csrf_token %}
+    <button type="submit"><i class="fa fa-trash"></i></button>
+  </form>
+</li>
+{% endblock %}
