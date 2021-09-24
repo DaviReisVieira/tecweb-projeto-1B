@@ -1,27 +1,3 @@
-/*
-Algumas informações úteis e dicas:
-  - Fontes disponíveis:
-    font-family: 'Roboto', sans-serif;
-    font-family: 'Permanent Marker', cursive;
-  - Cores:
-    Tons de amarelo:
-      #e4fc2b
-      #e0d426
-      #f7d736
-      #e0af26
-      #fcb02b
-    Tons de cinza:
-      #2c2c2c
-      #4c4c4c
-    Cores dos cards:
-      #ead3a7
-      #9de0f5
-      #ef89ba
-      #fae890
-      #abe9c1
-  - Sombra: https://codepen.io/sdthornton/pen/wBZdXq
- */
-
 html,
 body {
   font-family: "Roboto", sans-serif;
@@ -77,12 +53,17 @@ body {
 }
 
 .appbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+
   background-color: #f7d736;
   box-shadow: 0 7px 20px rgb(0 0 0 / 15%), 0 2px 3px rgb(0 0 0 / 22%);
   display: flex;
   justify-content: flex-start;
   align-items: center;
   height: 64px;
+  z-index: 2;
 }
 
 .logo {
@@ -91,6 +72,7 @@ body {
 }
 
 .container {
+  margin-top: 64px;
   text-align: center;
 }
 
@@ -159,12 +141,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 1.5rem 2.5rem 0;
+  padding: 1.5rem 2.5rem 1rem;
   margin-bottom: 20px;
+  margin-top: 70px;
+  position: absolute;
 }
 
 .card {
-  display: flex;
+  display: none;
   flex-direction: column;
   box-shadow: 0 7px 20px rgb(0 0 0 / 15%), 0 2px 3px rgb(0 0 0 / 22%);
   width: 210px;
@@ -334,4 +318,149 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--post-it-yellow);
+}
+
+/* Filtro de cards */
+.filter-container {
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+  place-content: center;
+  justify-content: space-around;
+  margin: 20px 0 10px;
+
+  /* overflow-x: auto;
+  white-space: nowrap; */
+}
+
+.filter-container > .btn {
+  display: inline-block;
+  float: none;
+  min-width: 100px;
+}
+
+.filter-container button {
+  margin: 0 10px;
+  width: 50%;
+}
+
+.show {
+  display: flex;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+/* Menu Hamburguer */
+
+.menuToggle {
+  display: block;
+  position: absolute;
+  top: 20px;
+  right: 15px;
+
+  z-index: 5;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.menuToggle a {
+  text-decoration: none;
+  color: #232323;
+
+  transition: color 0.3s ease;
+}
+
+.menuToggle a:hover {
+  color: white;
+}
+
+.menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor: pointer;
+
+  opacity: 0;
+  z-index: 2;
+
+  -webkit-touch-callout: none;
+}
+
+.menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+
+  background: black;
+  border-radius: 3px;
+
+  z-index: 1;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+.menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+.menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+.menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: black;
+}
+
+.menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+.menu {
+  position: absolute;
+  width: 190px;
+  margin: -100px 0 0 50px;
+  padding: 50px;
+  padding-top: 110px;
+
+  background: var(--post-it-yellow);
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+
+  transform-origin: 0% 0%;
+  transform: none;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+.menu li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+.menuToggle input:checked ~ ul {
+  transform: translate(-100%, 0);
 }

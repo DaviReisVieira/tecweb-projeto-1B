@@ -1,10 +1,41 @@
 {% extends "notes/base.html" %} {% load static %} {% block content %}
 <div class="appbar">
-  <img src="{% static 'notes/img/logo-getit.png' %}" class="logo" />
+  <a href="/" class="logo">
+    <img src="{% static 'notes/img/logo-getit.png' %}" class="logo" />
+  </a>
   <span class="subtitle">Como o Post-it, mas com outro verbo</span>
+  <div class="menuToggle">
+    <input type="checkbox" />
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+    <ul class="menu">
+      <a href="/">
+        <li>Home</li>
+      </a>
+      <a href="/tags">
+        <li>Lista de Tags</li>
+      </a>
+      <a
+        href="https://github.com/DaviReisVieira/tecweb-projeto-1B"
+        target="_blank"
+      >
+        <li>Sobre o Projeto</li>
+      </a>
+    </ul>
+  </div>
 </div>
 
 <main class="container">
+  <div id="buttonFilterContainer" class="filter-container">
+    <button class="btn active" onclick="filterSelection('all')">
+      Mostrar Todos
+    </button>
+    {% for tag in tags %} {% block buttons %} {% endblock %} {% endfor %}
+  </div>
+
   <form class="form-card" method="post" id="form-container">
     {% csrf_token %}
     <input type="hidden" name="method" value="CREATE" />
@@ -73,4 +104,9 @@
 </main>
 
 <script type="text/javascript" src="{% static 'script/getit.js' %}"></script>
+<script
+  type="text/javascript"
+  src="{% static 'script/filterCards.js' %}"
+></script>
+
 {% endblock %}
