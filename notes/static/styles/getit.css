@@ -243,34 +243,34 @@ body {
   transform: rotate(0deg);
 }
 .card-rotation-2 {
-  transform: rotate(2deg);
-}
-.card-rotation-3 {
-  transform: rotate(3deg);
-}
-.card-rotation-4 {
-  transform: rotate(4deg);
-}
-.card-rotation-5 {
   transform: rotate(5deg);
 }
+.card-rotation-3 {
+  transform: rotate(4deg);
+}
+.card-rotation-4 {
+  transform: rotate(3deg);
+}
+.card-rotation-5 {
+  transform: rotate(2deg);
+}
 .card-rotation-6 {
-  transform: rotate(6deg);
+  transform: rotate(1deg);
 }
 .card-rotation-7 {
-  transform: rotate(-2deg);
+  transform: rotate(-1deg);
 }
 .card-rotation-8 {
-  transform: rotate(-3deg);
+  transform: rotate(-2deg);
 }
 .card-rotation-9 {
-  transform: rotate(-4deg);
+  transform: rotate(-3deg);
 }
 .card-rotation-10 {
-  transform: rotate(-5deg);
+  transform: rotate(-4deg);
 }
 .card-rotation-11 {
-  transform: rotate(-6deg);
+  transform: rotate(-5deg);
 }
 
 .add-card {
@@ -315,7 +315,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--post-it-yellow);
+  background: rgba(247, 215, 54, 0.5);
 }
 
 ::-webkit-scrollbar-thumb {
