@@ -9,11 +9,9 @@ def index(request):
         content=request.POST.get('content')
         tagName = request.POST.get('tag')
         
-        print(tagName)
         note.title=title
         note.content=content
 
-        print(tagName)
         tag, create = Tag.objects.get_or_create(name=tagName)
         if create:
             tag.save()
@@ -22,20 +20,32 @@ def index(request):
         note.save()
         return redirect('index')
     else:
-        all_notes = Note.objects.all()
-        return render(request, 'notes/notes.html', {'notes': all_notes})
+        allNotes = Note.objects.all()
+        allTags = Tag.objects.all()
+        return render(request, 'notes/buttons.html', {'notes': allNotes, 'tags': allTags})
 
-def updateNoteView(request,id):
+
+def deleteNote(request, id):
+    note=Note.objects.get(id=id)
+    note.delete()
+    return redirect('index')
+
+
+def updateNote(request,id):
     tagName = request.POST.get('tag')
     print(tagName)
     tag, create = Tag.objects.get_or_create(name=tagName)
     if create:
         tag.save()
+        
     Note.objects.filter(id=id).update(title=request.POST.get('title'), content=request.POST.get('content'), tag=tag)
     return redirect('index')
 
+def tagList(request):
+    allTags = Tag.objects.all()
+    return render(request, 'tags/tagList.html', {'tags': allTags})
 
-def deleteNoteView(request, id):
-    note=Note.objects.get(id=id)
-    note.delete()
-    return redirect('index')
+def tagDetails(request,tagId):
+    notes = Note.objects.filter(tag=tagId)
+    tag=Tag.objects.get(id=tagId)
+    return render(request, 'tags/tagDetail.html', {'tag':tag,'notes': notes})

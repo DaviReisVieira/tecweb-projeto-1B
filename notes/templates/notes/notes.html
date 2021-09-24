@@ -1,5 +1,5 @@
 {% extends "notes/index.html" %} {% load static %} {% block notes %}
-<li class="card" key="{{ note.id }}">
+<li class="card filterDiv {{ note.tag.name }}" key="{{ note.id }}">
   <form method="post" action="{% url 'update' note.id %}">
     {% csrf_token %}
     <button class="card-update-button" type="submit" id="{{ note.id }}">

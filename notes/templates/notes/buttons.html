@@ -1,0 +1,5 @@
+{% extends "notes/notes.html" %} {% load static %} {% block buttons %}
+<button class="btn {{ tag.name }}" onclick="filterSelection('{{ tag.name }}')">
+  {{ tag.name }}
+</button>
+{% endblock %}
