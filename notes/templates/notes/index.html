@@ -30,9 +30,7 @@
 
 <main class="container">
   <div id="buttonFilterContainer" class="filter-container">
-    <button class="btn active" onclick="filterSelection('all')">
-      Mostrar Todos
-    </button>
+    <button class="btn active" onclick="filterSelection('all')">Todos</button>
     {% for tag in tags %} {% block buttons %} {% endblock %} {% endfor %}
   </div>
 

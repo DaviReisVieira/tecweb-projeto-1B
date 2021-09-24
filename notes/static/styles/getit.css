@@ -66,6 +66,12 @@ body {
   z-index: 2;
 }
 
+@media (max-width: 420px) {
+  .subtitle {
+    display: none;
+  }
+}
+
 .logo {
   height: 50px;
   margin: 1% 1%;
@@ -143,7 +149,7 @@ body {
   justify-content: space-around;
   padding: 1.5rem 2.5rem 1rem;
   margin-bottom: 20px;
-  margin-top: 70px;
+  margin-top: 50px;
   position: absolute;
 }
 
@@ -330,10 +336,16 @@ body {
   width: 100%;
   place-content: center;
   justify-content: space-around;
-  margin: 20px 0 10px;
+  /* margin: 20px 0 10px; */
+  padding: 20px 5px 10px;
+  justify-content: left;
 
-  /* overflow-x: auto;
-  white-space: nowrap; */
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.filter-container::-webkit-scrollbar {
+  display: none;
 }
 
 .filter-container > .btn {

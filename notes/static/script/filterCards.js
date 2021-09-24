@@ -35,7 +35,6 @@ function removeElements(element, name) {
 
 // Botão ativo
 var btnContainer = document.getElementById("buttonFilterContainer");
-console.log(btnContainer);
 var btns = btnContainer.getElementsByClassName("btn");
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function () {
