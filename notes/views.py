@@ -8,7 +8,8 @@ def index(request):
         title=request.POST.get('title')
         content=request.POST.get('content')
         tagName = request.POST.get('tag')
-        
+        if not tagName:
+            tagName= 'Sem Tag'
         note.title=title
         note.content=content
 

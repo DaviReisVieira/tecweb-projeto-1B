@@ -1,5 +1,43 @@
 # Projeto 1B - Davi Reis
 
+## Autor:
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/DaviReisVieira"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/36394034?v=4" width="100px;" alt=""/><br /><sub><b>Davi Reis Vieira</b></sub></a><br /><a href="https://github.com/DaviReisVieira" title="Davi Reis Vieira">4º Semestre</a></td>
+  </tr>
+</table>
+
+## Deploy
+
+URL: https://murmuring-everglades-97875.herokuapp.com/
+
+## Objetivos
+
+-[x] Reimplementar o CRUD da parte A em Django, ou seja, implementar as funcionalidades de criação, listagem, edição e remoção de anotações aplicando o mesmo estilo (css).
+
+-[x] Utilizar o PostgreSQL (em um container Docker) ao invés do SQLite.
+
+-[x] Implementar o sistema de tags para as anotações.
+
+-[x] Publicar a página.
+
+## Adicionais
+
+-[x] Filtro de Tags utilizando JS.
+
+-[x] Responsividade do site.
+
+-[x] Scrollbar do Filtro.
+
+-[x] Edição do Post It no card.
+
+-[x] Uso de Hamburguer Menu.
+
+-[x] Animações em CSS.
+
+## Iniciando a aplicação
+
 Inicie um ambiente virtual:
 
 ```cmd

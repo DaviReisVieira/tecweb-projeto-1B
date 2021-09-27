@@ -85,7 +85,7 @@ body {
 .form-card {
   z-index: 1;
   visibility: hidden;
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 1rem;
   flex-direction: column;

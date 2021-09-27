@@ -82,6 +82,14 @@ DATABASES = {
         conn_max_age=600,
         ssl_require=not DEBUG
     )
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'getit',
+    #     'USER': 'getituser',
+    #     'PASSWORD': 'getitsenha',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # }
 }
 
 
